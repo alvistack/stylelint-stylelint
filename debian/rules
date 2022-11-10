@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+SHELL := /bin/bash
+
+override_dh_auto_install:
+	install -Dpm 755 -d debian/tmp/usr/bin
+	install -Dpm 755 -d debian/tmp/usr/lib/node_modules
+	cp -rfT node_modules debian/tmp/usr/lib/node_modules
+	pushd debian/tmp/usr/bin && \
+		ln -fs /usr/lib/node_modules/stylelint/bin/stylelint.js stylelint && \
+		popd
+	chmod a+x debian/tmp/usr/lib/node_modules/stylelint/bin/stylelint.js
+	fdupes -qnrps debian/tmp/usr/lib/node_modules
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod a+x debian/stylelint/usr/lib/node_modules/stylelint/bin/stylelint.js
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@
