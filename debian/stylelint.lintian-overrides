@@ -1,0 +1,10 @@
+stylelint: copyright-without-copyright-notice
+stylelint: description-synopsis-starts-with-article
+stylelint: embedded-javascript-library
+stylelint: executable-not-elf-or-script
+stylelint: initial-upload-closes-no-bugs
+stylelint: no-manual-page
+stylelint: package-contains-eslint-config-file
+stylelint: package-contains-npm-ignore-file
+stylelint: script-not-executable
+stylelint: zero-byte-file-in-doc-directory
